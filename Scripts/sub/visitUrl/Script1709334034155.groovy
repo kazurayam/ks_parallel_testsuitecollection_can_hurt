@@ -36,6 +36,12 @@ BrowserWindowLayoutManager.layout(driver,
 // navitate to the target URL, play on it a bit, the close the borwser
 WebUI.navigateToUrl(url)
 
+if (GlobalVariable.FAST_SMARTWAIT != true) {
+	Path waitjs = Paths.get("./src/js/wait_fast.js")
+	String script = Files.readAllLines(waitjs).join("\n")
+	WebUI.executeJavaScript(script, null)
+}
+
 Path output = Paths.get("./output")
 Files.createDirectories(output)
 Path screenshot = output.resolve("${timestamp}.${tcindex}.png")
