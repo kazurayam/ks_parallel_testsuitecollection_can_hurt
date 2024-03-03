@@ -124,6 +124,9 @@ So, if I can change this `30000` to `5000`, then the Smart Wait will expire more
 - In the [`Test Cases/sub/visitUrl`](https://github.com/kazurayam/ks_parallel_testsuitecollection_can_hurt/blob/master/Scripts/sub/visitUrl/Script1709334034155.groovy), the script will load the `wait_fast.js` file into a string, then call `WebUI.executeJavaScript(string)` keyword to send the JavaScript code into the target webpage on the browser runtime
 - the browser will execute the `wait_fast.js` script. Effectively the value of `window.katalonWaiter` property will be overwritten.
 
+>I am not very sure if I can overwrite the `window.katalonWaiter` property on time.
+
+
 ## Evaluation
 
 I measured the time duration of the test case TC0 in 2 setups: Smart Wait of 30seconds timeout, and 5 secons timeout. The following is the result.
