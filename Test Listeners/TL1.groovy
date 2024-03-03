@@ -7,12 +7,15 @@ import com.kms.katalon.core.context.TestCaseContext
 import com.kms.katalon.core.context.TestSuiteContext
 
 import internal.GlobalVariable
+import java.util.regex.Pattern
+import java.util.regex.Matcher
 
 class TL1 {
 	
 	private boolean inSuite = false
 	private int numOfCells
 	private TilingCellLayoutMetrics layoutMetrics
+	private Pattern pattern = Pattern.compile("Test Cases/TC([0-9]+)")
 	
 	@BeforeTestSuite
 	def neforeTestSuite(TestSuiteContext testSuiteContext) {
@@ -29,10 +32,14 @@ class TL1 {
 		} else {
 			numOfCells = 1
 		}
-		GlobalVariable.CELL_LAYOUT_MANAGER = createLayoutMetrics()
+		GlobalVariable.LAYOUT_METRICS = createLayoutMetrics()
 		//
-		String tcid = testCaseContext.getTestCaseId()
-		GlobalVariable.TESTCASE_INDEX = tcid.substring(tcid.length() - 1) + 0
+		Matcher m = pattern.matcher(testCaseContext.getTestCaseId())
+		if (m.matches()) {
+			GlobalVariable.TESTCASE_INDEX = Integer.parseInt(m.group(1))
+		} else {
+			GlobalVariable.TESTCASE_INDEX = 0
+		}
 	}
 
 	@AfterTestCase

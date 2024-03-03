@@ -12,7 +12,7 @@
    <GlobalVariableEntity>
       <description></description>
       <initValue>null</initValue>
-      <name>CELL_LAYOUT_MANAGER</name>
+      <name>LAYOUT_METRICS</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>

@@ -6,10 +6,12 @@ import java.nio.file.Paths
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import com.kazurayam.browserwindowlayout.BrowserWindowLayoutManager
+import com.kazurayam.browserwindowlayout.TilingCellLayoutMetrics
 import org.openqa.selenium.WebDriver
 
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import internal.GlobalVariable
 
 assert tcindex != null
 assert url != null
@@ -27,10 +29,13 @@ System.setProperty("webdriver.chrome.verboseLogging", "true");
 WebUI.openBrowser('')
 WebDriver driver = DriverFactory.getWebDriver()
 TilingCellLayoutMetrics layoutMetrics = GlobalVariable.LAYOUT_METRICS;
-BrowserWindowLayoutManager.layout(driver, )
+BrowserWindowLayoutManager.layout(driver,
+	layoutMetrics.getCellPosition(tcindex),
+	layoutMetrics.getCellDimension(tcindex))
 
 // navitate to the target URL, play on it a bit, the close the borwser
 WebUI.navigateToUrl(url)
 WebUI.verifyElementPresent(findTestObject("Object Repository/katalon.com/footer/img_logo"), 10)
 WebUI.delay(3)
+
 WebUI.closeBrowser()
