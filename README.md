@@ -54,9 +54,9 @@ I set the number of parallel execution to be 4.
 
 ## What I observed
 
-I chose 4 URL as target to visit and take screenshots. I had no particular reason why I chose these 4. They are public URL that advertise famous site-seeing locations.
+I chose 4 URL as target to visit. I had no particular reason why I chose these 4. They are public URL that advertise famous site-seeing locations.
 
-Some of them are using AJAX technology, they have ever-moving UI components. This makes it difficult for Selenium-based automation tools to detect when it determines the timing when the target URL is fully loaded. The movig UI comonents just confused the selenium-based tests. Katalon Studio provides a feature named "Smart Wait", which handles the AJAX-driven events in the page and let the test scripts wait the page loading for atmost 30 seconds, and go next.
+Some of them are using AJAX technology, they have ever-moving UI components. This causes technical challenges for Selenium-based automation tools to determine when the page fully loaded. The movig UI components confuse selenium-based tests. Katalon Studio provides a feature named "Smart Wait", which handles the AJAX-driven events in the page and let the test scripts wait the page loading for atmost 30 seconds, stop waiting and go to the next steps gracefully.
 
 The Sequential mode took take long time. It took 180 seconds whereas the sum of the composing Test cases is 90. It took longer than the sum of the composing Test Cases, of course. Plus the overhead of launching browser processes added more.
 
