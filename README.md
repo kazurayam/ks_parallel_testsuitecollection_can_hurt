@@ -69,5 +69,5 @@ The most important factor that determined the speed in this examination was the 
 
 ## Conclusion
 
-I think it is not a good idea to debate if we should challenge any parallel execution of test scripts, or not. Rather we should look into the nature of each indivisual target URLs and try to minimized the wait of page loading.
+I think it is pointless to discuess if we should challenge any parallel execution of test scripts, or not. Rather we should look into the nature of each indivisual target URLs and try to minimized the wait of page loading.
 
