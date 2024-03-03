@@ -121,7 +121,7 @@ So, if I can change this `30000` to `5000`, then the Smart Wait will expire more
 
 - I made a copy of the original into [wait_fast.js](https://github.com/kazurayam/ks_parallel_testsuitecollection_can_hurt/blob/master/src/js/wait_fast.js)
 - In the `wait_fast.js`, I manually edit the source to change 30000 to 5000
-- In the `Test Cases/sub/visitUrl`[https://github.com/kazurayam/ks_parallel_testsuitecollection_can_hurt/blob/master/Scripts/sub/visitUrl/Script1709334034155.groovy], the script will load the `wait_fast.js` file into a string, then call `WebUI.executeJavaScript(string)` keyword to send the JavaScript code into the target webpage on the browser runtime
+- In the [`Test Cases/sub/visitUrl`](https://github.com/kazurayam/ks_parallel_testsuitecollection_can_hurt/blob/master/Scripts/sub/visitUrl/Script1709334034155.groovy), the script will load the `wait_fast.js` file into a string, then call `WebUI.executeJavaScript(string)` keyword to send the JavaScript code into the target webpage on the browser runtime
 - the browser will execute the `wait_fast.js` script. Effectively the value of `window.katalonWaiter` property will be overwritten.
 
 ## Evaluation
