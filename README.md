@@ -4,7 +4,7 @@
 
 Katalon Studio provides a feature [Parallel execution of Test Suite Collection](https://docs.katalon.com/docs/katalon-studio/execute-tests/execute-test-suite-collections-in-katalon-studio#parallel-mode). Does it make your test project run faster than the sequential mode?
 
-I did a study about this question. I would report the result here.
+I did a study about this question. I would present you a data.
 
 ## How to run the exam
 
