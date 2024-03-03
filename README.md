@@ -18,7 +18,7 @@ I specified a larger memroy size to Katalon JVM (-Xmx4096m) than the default 204
 
 Run `Test Suites/TSC_parallel` and `Test Suites/TSC_sequential`.
 
-then you will see 4 Chrome windows are opened in parallel:
+then you will see 3 Chrome windows are opened in parallel:
 
 ![parallel_TSC](https://kazurayam.github.io/ks_parallel_testsuitecollection_can_hurt/images/parallel_TSC.png)
 
@@ -61,9 +61,9 @@ I got the figure: 107 seconds.
 
 I chose 3 URL as target to visit without any particular reason. They are public URL that advertise famous site-seeing locations.
 
-Some of them are using AJAX technology, they have ever-moving UI components. This causes technical challenges for Selenium-based automation tools to determine when the page fully loaded. The ever-moving UI components confuse selenium-based tests. Katalon Studio provides a feature named "Smart Wait", which handles the AJAX-driven events in the page and let the test scripts wait the page loading for atmost 30 seconds, stop waiting and go to the next steps gracefully.
+One of them (京都) is using JavaScript heavily; it have some visual parts that continue moving. This brings a technical challenge for a Selenium-based UI automation tool to determine when the page fully loaded. The ever-changing DOM confuses selenium-based tests. In order to manage this difficulty, Katalon Studio provides a feature named "Smart Wait", which handles the JavaScript DOM events in the page and let the test scripts wait for the movement to stop. Smart Wait waits for atmost 30 seconds. Once expired, Smart Wait will stop waiting and gracefully let the test script to continue going.
 
-The Sequential mode took long time. It took 130 seconds whereas the sum of the composing Test cases is 70. It took longer than the sum of the composing Test Cases, of course. It took 60 seconds to launch browser processes 3 times.
+The Sequential mode took long time. It took 130 seconds whereas the sum of the composing Test cases is 70. It took longer than the sum of the composing Test Cases, of course.
 
 The Parallel mode also took long time. It took 107 seconds, which is longer the simple sum of Test Cases 70.
 
@@ -76,3 +76,5 @@ I would argue it is not quite right. The most important factor that determined t
 ## Conclusion
 
 I think it is pointless to discuss if we should challenge any parallel execution of test scripts, or not. Rather we should look into the nature of each indivisual target URLs and try to minimize the unnecessary wait in each test scripts. The speed of each test cases is the most important factor for total duration. You should make every efforts to tune each test cases run at the maximum speed. You shouldn't hope for the Parallel execution to do you a magic.
+
+
