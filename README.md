@@ -66,7 +66,9 @@ The Parallel mode also took long time. It took 120 seconds, which is longer the 
 
 Still the parallel mode ran quicker than the sequential mode. Why? The long wait for the page loading caused this duration difference. In the parallel mode, in the 4 windows of browsers, I could observe that all 4 test scripts were waiting for the pages to finsih loading. **The scripts were waiting parallely.** So, the Test Suite Collection of Parallel mode finished as soon as the slowest member Test Suite finished while the rest had finished beforehand.
 
-A warning: This examination may impress you a misunderstanding. You may have got an impression that the Parallel mode of Test Suite Collection can run faster than the Sequential mode because its "parallel". I would say, it is not quite right. The most important factor that determined the speed in this examination was the nature of each target URLs: how long each Test Case had to wait for the pages to load completely.
+A warning: this examination may give you a wrong impression. In the example, the Parallel mode took 127 seconds whereas the Sequential mode took 180 seconds. So the parallel mode is faster!
+
+I would argue it is not quite right. The most important factor that determined the speed in this examination was the nature of each target URLs: how long each Test Case had to wait for the pages to load completely.
 
 ## Conclusion
 
