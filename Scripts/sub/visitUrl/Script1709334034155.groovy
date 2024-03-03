@@ -21,7 +21,7 @@ println "url: ${url}"
 Path logs = Paths.get("./logs")
 Files.createDirectories(logs)
 String timestamp = DateTimeFormatter.ofPattern("yyyyMMdd_hhmmss").format(LocalDateTime.now())
-Path log = logs.resolve("${timestamp}.log")
+Path log = logs.resolve("${timestamp}.${tcindex}.log")
 System.setProperty("webdriver.chrome.logfile", log.toAbsolutePath().toString());
 System.setProperty("webdriver.chrome.verboseLogging", "true");
 
@@ -35,7 +35,10 @@ BrowserWindowLayoutManager.layout(driver,
 
 // navitate to the target URL, play on it a bit, the close the borwser
 WebUI.navigateToUrl(url)
-WebUI.verifyElementPresent(findTestObject("Object Repository/katalon.com/footer/img_logo"), 10)
-WebUI.delay(3)
+
+Path output = Paths.get("./output")
+Files.createDirectories(output)
+Path screenshot = output.resolve("${timestamp}.${tcindex}.png")
+WebUI.takeScreenshot(screenshot.toFile().toString())
 
 WebUI.closeBrowser()
