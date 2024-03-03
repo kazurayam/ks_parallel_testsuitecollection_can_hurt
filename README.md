@@ -1,22 +1,20 @@
 # [Katalon Studio] Parallel mode of Test Suite Collection --- is it faster than Sequential mode
 
+## Problem to solve
+
 Katalon Studio provides a feature [Parallel execution of Test Suite Collection](https://docs.katalon.com/docs/katalon-studio/execute-tests/execute-test-suite-collections-in-katalon-studio#parallel-mode). Does it make your test project run faster than the sequential mode?
 
 I did a study about this question. I would report the result here.
 
 ## How to run the exam
 
-Run `Test Suites/TSC0_parallel` and `Test Suites/TSC1_sequential`.
+Run `Test Suites/TSC_parallel` and `Test Suites/TSC_sequential`.
 
 then you will see 4 Chrome windows are opened in parallel:
 
 ![parallel_TSC](https://kazurayam.github.io/ks_parallel_testsuitecollection_can_hurt/images/parallel_TSC.png)
 
 You can see how the Test Suite Collection runs.
-
-Do you like it or not?
-
-Just have a look.
 
 ## A study of speed
 
