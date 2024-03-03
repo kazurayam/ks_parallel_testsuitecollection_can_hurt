@@ -21,7 +21,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>false</initValue>
+      <initValue>true</initValue>
       <name>FAST_SMARTWAIT</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
