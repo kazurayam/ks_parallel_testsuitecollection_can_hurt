@@ -50,7 +50,7 @@ How long the `Test Suites/TSC_parallel` took to finish executing the same set?
 
 I set the number of parallel execution to be 4.
 
-127 seconds.
+I got the figure: 127 seconds.
 
 ## What I observed
 
