@@ -58,16 +58,15 @@ I chose 4 URL as target to visit. I had no particular reason why I chose these 4
 
 Some of them are using AJAX technology, they have ever-moving UI components. This causes technical challenges for Selenium-based automation tools to determine when the page fully loaded. The movig UI components confuse selenium-based tests. Katalon Studio provides a feature named "Smart Wait", which handles the AJAX-driven events in the page and let the test scripts wait the page loading for atmost 30 seconds, stop waiting and go to the next steps gracefully.
 
-The Sequential mode took take long time. It took 180 seconds whereas the sum of the composing Test cases is 90. It took longer than the sum of the composing Test Cases, of course. Plus the overhead of launching browser processes added more.
+The Sequential mode took take long time. It took 180 seconds whereas the sum of the composing Test cases is 90. It took longer than the sum of the composing Test Cases, of course. The overhead of launching browser processes added more duration.
 
 The Parallel mode also took long time. It took 120 seconds, which is longer the simple sum of Test Cases 90.
-Still the parallel mode ran quicker than the sequential mode. Why? The long delay of loading pages caused this time gap. In the parallel mode, in the 4 windows of browsers, I could observe that test scripts are just waiting for the page to load. **The scripts were waiting parallely.** So, the Test Suite Collection of Parallel mode finished as soon as the slowest member Test Suite finished while the rest finished beforehand.
 
-This examination may impress you a misunderstanding. You may have got an impression that the Parallel mode of Test Suite Collection can run faster than the Sequential mode because its "parallel". I would say, it is not quite right.
+Still the parallel mode ran quicker than the sequential mode. Why? The long wait for the page loading caused this duration difference. In the parallel mode, in the 4 windows of browsers, I could observe that all 4 test scripts were waiting for the pages to finsih loading. **The scripts were waiting parallely.** So, the Test Suite Collection of Parallel mode finished as soon as the slowest member Test Suite finished while the rest had finished beforehand.
 
-The most important factor that determined the speed in this examination was the nature of the target URLs: how long each Test Case had to wait for the pages to load completely.
+A warning: This examination may impress you a misunderstanding. You may have got an impression that the Parallel mode of Test Suite Collection can run faster than the Sequential mode because its "parallel". I would say, it is not quite right. The most important factor that determined the speed in this examination was the nature of each target URLs: how long each Test Case had to wait for the pages to load completely.
 
 ## Conclusion
 
-I think it is pointless to discuess if we should challenge any parallel execution of test scripts, or not. Rather we should look into the nature of each indivisual target URLs and try to minimized the wait of page loading.
+I think it is pointless to discuess if we should challenge any parallel execution of test scripts, or not. Rather we should look into the nature of each indivisual target URLs and try to minimized the wait of page loading. Also the speed of each test cases is the most important factor for total duration. You should make every efforts to tune each test cases run at there maximum speed. You shouldn't hope for the Parallel execution expecting it do you a magic.
 
