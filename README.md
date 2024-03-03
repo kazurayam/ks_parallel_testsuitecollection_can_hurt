@@ -84,11 +84,11 @@ I think it is pointless to discuss if we should challenge any parallel execution
 
 When the [`Test Cases/TC0`](https://github.com/kazurayam/ks_parallel_testsuitecollection_can_hurt/blob/master/Scripts/TC0/Script1709339037820.groovy) visits the site https://kyoto.travel/en/ , it takes 36 seconds. Why it takes this long seconds? I want it to run in 20 seconds or so.
 
-It is because this web page uses JavaScript heavily, uses timer-driven DOM transformation, which continues forever. Because the DOM continues to change, for Selenium-based automated tests' point of view, this web page looks to be loading forever. In order to manage the difficulty of page loading, Katalon Studio offers a feature "Smart Wait". See https://katalon.com/resources-center/blog/handle-selenium-wait for detail. The Smart Wait waits for 30 seconds maximum for the DOM-changes to stop. When the timeout expires, Smart Wait returns gracefully to the caller test script as if the page loading has successfully finished. So the test script will be able to continue its processing as if the page has completely loaded.
+It is because this web page uses JavaScript heavily, uses timer-driven DOM manipulation, which continues forever. Because the DOM is continuously modified, for Selenium-based automated tests' point of view, this web page looks to be loading forever. In order to manage the difficulty of page loading, Katalon Studio offers a feature "Smart Wait". See https://katalon.com/resources-center/blog/handle-selenium-wait for detail. The Smart Wait waits for 30 seconds maximum for the DOM-changes to stop. When the timeout expires, Smart Wait returns gracefully to the caller test script as if the page loading has successfully finished. So the test script will be able to continue its processing as if the page has completely loaded.
 
-In the case of `Test Cases/TC0`, the Smart Wait worked in the background. The Smart Wait waited 30 seconds. Therefore `Test Cases/TC0` took 34 secons to finish.
+In the case of `Test Cases/TC0`, the Smart Wait worked in the background. It waited 30 seconds. Therefore `Test Cases/TC0` took 34 secons to finish.
 
-Now I know, the [target page](https://kyoto.travel/en/) is loaded in 5 seconds or so. I find no reazon to wait 30 seconds. I want Smart Wait to return more quickly.
+On the other hand, I observe that the [target page](https://kyoto.travel/en/) finishes loading in 5 seconds or so. I find no reazon to wait for 30 seconds. I want Smart Wait to return more quickly.
 
 I know, Katalon Studio does not offer any option to change the timeout value of Smart Wait. But I want to change the timeout of the Smart Wait from 30 seconds to 5 seconds. Is it possible?
 
