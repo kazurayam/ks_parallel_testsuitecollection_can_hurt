@@ -62,7 +62,7 @@ The Sequential mode took long time. It took 180 seconds whereas the sum of the c
 
 The Parallel mode also took long time. It took 120 seconds, which is longer the simple sum of Test Cases 90.
 
-Still the parallel mode ran quicker than the sequential mode. Why? The long wait for the page loading caused this duration difference. In the parallel mode, in the 4 windows of browsers, I could observe that all 4 test scripts were waiting for the pages to finsih loading. **The scripts were waiting parallely.** So, the Test Suite Collection of Parallel mode finished as soon as the slowest member Test Suite finished while the rest had finished beforehand.
+Still the parallel mode ran quicker than the sequential mode. Why? The long wait for the page loading caused this duration difference. In the parallel mode, in the 4 windows of browsers, I could observe that all 4 test scripts were waiting for the pages to finsih loading. **The scripts were waiting parallely for long period.** So, the Test Suite Collection of Parallel mode finished as soon as the slowest member Test Suite finished while the rest had finished beforehand.
 
 A warning: this examination may give you a wrong impression: *In the example, the Parallel mode took 127 seconds whereas the Sequential mode took 180 seconds. So the parallel mode is faster!*
 
@@ -70,4 +70,4 @@ I would argue it is not quite right. The most important factor that determined t
 
 ## Conclusion
 
-I think it is pointless to discuess if we should challenge any parallel execution of test scripts, or not. Rather we should look into the nature of each indivisual target URLs and try to minimize the unnecessary wait in each test scripts. The speed of each test cases is the most important factor for total duration. You should make every efforts to tune each test cases run at the maximum speed. You shouldn't hope for the Parallel execution to do you a magic.
+I think it is pointless to discuss if we should challenge any parallel execution of test scripts, or not. Rather we should look into the nature of each indivisual target URLs and try to minimize the unnecessary wait in each test scripts. The speed of each test cases is the most important factor for total duration. You should make every efforts to tune each test cases run at the maximum speed. You shouldn't hope for the Parallel execution to do you a magic.
