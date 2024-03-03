@@ -82,7 +82,7 @@ I think it is pointless to discuss if we should challenge any parallel execution
 
 ## Problem to solve
 
-When the `Test Cases/TC0` visits the site https://kyoto.travel/en/ , it took 36 seconds. Why it took this long?
+When the [`Test Cases/TC0`](https://github.com/kazurayam/ks_parallel_testsuitecollection_can_hurt/blob/master/Scripts/TC0/Script1709339037820.groovy) visits the site https://kyoto.travel/en/ , it takes 36 seconds. Why it takes this long seconds? I want it to run in 20 seconds or so.
 
 It is because this web page uses JavaScript heavily, uses timer-driven DOM transformation, which continues forever. Because the DOM continues to change, for Selenium-based automated tests' point of view, this web page looks to be loading forever. In order to manage the difficulty of page loading, Katalon Studio offers a feature "Smart Wait". See https://katalon.com/resources-center/blog/handle-selenium-wait for detail. The Smart Wait waits for 30 seconds maximum for the DOM-changes to stop. When the timeout expires, Smart Wait returns gracefully to the caller test script as if the page loading has successfully finished. So the test script will be able to continue its processing as if the page has completely loaded.
 
@@ -100,9 +100,9 @@ https://github.com/katalon-studio/katalon-studio-testing-framework/blob/master/I
 
 This Groovy code configures and launch the Smart Wait feature. It executes JavaScript snippet that creates the `window.katalonWaiter` property and register callbacks `katalon_smart_waiter_do_ajax_wait()` and `katalon_smart_waiter_do_dom_wait()`. Then, how the callback functions are implemented?
 
-Months ago, @Russ_thomas pointed me to the `<Katalon Studio Installation dir>\Content\configuration\resources\extensions\Chrome\Smart Wait\content\wait.js`. See the following link to see the source:
+Months ago, @Russ_thomas pointed me to the `<Katalon Studio Installation dir>\Content\configuration\resources\extensions\Chrome\Smart Wait\content\wait.js`. See the following link to see a copy of the source for reference:
 
-- [wait.js](./src/js/wait.js)
+- [wait.js](https://github.com/kazurayam/ks_parallel_testsuitecollection_can_hurt/blob/master/src/js/wait.js)
 
 In this source code I could find the following line:
 
@@ -119,9 +119,9 @@ So, if I can change this `30000` to `5000`, then the Smart Wait will expire more
 
 ## Solution implemented.
 
-- I made a copy of the original into [wait_fast.js](./src/js/wait_fast.js)
+- I made a copy of the original into [wait_fast.js](https://github.com/kazurayam/ks_parallel_testsuitecollection_can_hurt/blob/master/src/js/wait_fast.js)
 - In the `wait_fast.js`, I manually edit the source to change 30000 to 5000
-- In the `Test Cases/sub/visitUrl`[./Scripts/sub/visitUrl/Script1709334034155.groovy], the script will load the `wait_fast.js` file into a string, then call `WebUI.executeJavaScript(string)` keyword to send the JavaScript code into the target webpage on the browser runtime
+- In the `Test Cases/sub/visitUrl`[https://github.com/kazurayam/ks_parallel_testsuitecollection_can_hurt/blob/master/Scripts/sub/visitUrl/Script1709334034155.groovy], the script will load the `wait_fast.js` file into a string, then call `WebUI.executeJavaScript(string)` keyword to send the JavaScript code into the target webpage on the browser runtime
 - the browser will execute the `wait_fast.js` script. Effectively the value of `window.katalonWaiter` property will be overwritten.
 
 ## Evaluation
