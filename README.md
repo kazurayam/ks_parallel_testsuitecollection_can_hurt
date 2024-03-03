@@ -72,5 +72,4 @@ I would argue it is not quite right. The most important factor that determined t
 
 ## Conclusion
 
-I think it is pointless to discuess if we should challenge any parallel execution of test scripts, or not. Rather we should look into the nature of each indivisual target URLs and try to minimized the wait of page loading. Also the speed of each test cases is the most important factor for total duration. You should make every efforts to tune each test cases run at there maximum speed. You shouldn't hope for the Parallel execution expecting it do you a magic.
-
+I think it is pointless to discuess if we should challenge any parallel execution of test scripts, or not. Rather we should look into the nature of each indivisual target URLs and try to minimized the wait of page loading. The speed of each test cases is the most important factor for total duration. You should make every efforts to tune each test cases run at the maximum speed. You shouldn't hope for the Parallel execution to do you a magic.
