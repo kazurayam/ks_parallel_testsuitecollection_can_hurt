@@ -30,13 +30,15 @@ Question: How long it takes to run the Test Suite Collection in sequential mode 
 
 ### Speed of Test Cases
 
+I used Chrome browser to run the test cases with.
+
 How long each Test Cases takes to run?
 
-|Test Case| visits which URL?         | approx seconds|
-|---------|---------------------------|----|
-|TC0      | https://kyoto.travel/en/  | 36 |
-|TC1      | https://www.esbnyc.com/   | 19 |
-|TC2      | https://www.louvre.fr/en/ | 14 |
+|Test Suite|seconds|Test Case|seconds| visits which URL?        |
+|----------|-------|---------|-------|--------------------------|
+|TS0       |       |TC0      | 36    |https://kyoto.travel/en/  |
+|TS1       |       |TC1      | 19    |https://www.esbnyc.com/   |
+|TS2       |       |TC2      | 14    |https://www.louvre.fr/en/ |
 
 The sum of seconds of TC0 + TC1 + TC2 makes approximately 70 seconds
 
