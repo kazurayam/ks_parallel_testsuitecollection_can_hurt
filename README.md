@@ -113,7 +113,7 @@ In this source code I could find the following line:
         ...
 ```
 
-Here is the timeout value 30 seconds is hard coded.
+Here is the timeout value 30 seconds hard-coded.
 
 So, if I can change this `30000` to `5000`, then the Smart Wait will expire more quickly.
 
@@ -136,8 +136,6 @@ Obviously I saw the `TC0` ran much faster when the Smart Wait timeout is tuned s
 
 ## Conclustion
 
-It is just unfortunate that the timeout of Smart Wait is fixed to be 30 seconds; Katalon does not offer any customizability.
-
-Now I showed you how to trick KS. I hope this trick may save you sometime.
+It is just unfortunate that the timeout of Smart Wait is fixed to be 30 seconds; Katalon does not offer any customizability. Now I showed you how to trick KS. I hope this trick may help you sometime.
 
 
