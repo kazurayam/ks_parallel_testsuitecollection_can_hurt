@@ -5,15 +5,15 @@ import java.time.Duration
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
+import com.kazurayam.ks.testsuitecollection.Utils
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-Path out = Paths.get("./output")
-Files.createDirectories(out)
-Path file = out.resolve("timestamp")
+Path file = Utils.getTimestampFile();
 List<String> text = Files.readAllLines(file)
 
-DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss")  
+DateTimeFormatter format = Utils.getDateTimeFormatter()  
 LocalDateTime tscStartedAt = LocalDateTime.parse(text[0], format)
 Duration duration = Duration.between(tscStartedAt, LocalDateTime.now())
 long seconds = duration.getSeconds()
+
 WebUI.comment("Tsc took ${seconds} seconds")
