@@ -8,7 +8,7 @@ I did a study about this question. I would present you a data.
 
 ## Environment
 
-I used Katalon Studio v9.0.0 on Mac, Chrome v122, manually upgraded ChromeDriver to the appropriate version.
+I used Chrome v122, Katalon Studio v9.0.0 with appropriate version of ChromeDriver manually upgraded.
 
 I set the SmartWait ON.
 
@@ -36,11 +36,11 @@ How long each Test Cases takes to run?
 
 |Test Suite|seconds|Test Case|seconds| visits which URL?        |
 |----------|-------|---------|-------|--------------------------|
-|TS0       |       |TC0      | 36    |https://kyoto.travel/en/  |
-|TS1       |       |TC1      | 19    |https://www.esbnyc.com/   |
-|TS2       |       |TC2      | 14    |https://www.louvre.fr/en/ |
+|TS0       | 24    |TC0      | 23    |https://kyoto.travel/en/  |
+|TS1       | 16    |TC1      | 14    |https://www.esbnyc.com/   |
+|TS2       | 14    |TC2      | 13    |https://www.louvre.fr/en/ |
 
-The sum of seconds of TC0 + TC1 + TC2 makes approximately 70 seconds
+The sum of seconds of TS0 + TS1 + TS2 makes 54 seconds
 
 ### Speed of Sequential execution
 
@@ -48,7 +48,7 @@ How long the `Test Suites/TSC_sequential` took to finish executing all 3 Test Ca
 
 I used my stockwatch device to measure it.
 
-I got the figure: 130 seconds.
+I got the figure: 84 seconds.
 
 
 ### Speed of Parallel execution
@@ -57,28 +57,7 @@ How long the `Test Suites/TSC_parallel` took to finish executing the same set?
 
 I set the number of parallel execution to be 3.
 
-I got the figure: 107 seconds.
-
-## What I observed
-
-I chose 3 URL as target to visit without any particular reason. They are public URL that advertise famous site-seeing locations.
-
-One of them (京都) is using JavaScript heavily; it have some visual parts that continue moving. This brings a technical challenge for a Selenium-based UI automation tool to determine when the page fully loaded. The ever-changing DOM confuses selenium-based tests. In order to manage this difficulty, Katalon Studio provides a feature named "Smart Wait", which handles the JavaScript DOM events in the page and let the test scripts wait for the movement to stop. Smart Wait waits for atmost 30 seconds. Once expired, Smart Wait will stop waiting and gracefully let the test script to continue going.
-
-The Sequential mode took long time. It took 130 seconds whereas the sum of the composing Test cases is 70. It took longer than the sum of the composing Test Cases, of course.
-
-The Parallel mode also took long time. It took 107 seconds, which is longer the simple sum of Test Cases 70.
-
-Still the parallel mode ran a bit quicker than the sequential mode. Why? The long wait for the page loading caused this duration difference. In the parallel mode, in the 3 windows of browsers, I could observe that all 3 test scripts were waiting for the pages to finish loading. **The scripts were waiting parallely for long period.** So, the Test Suite Collection of Parallel mode finished as soon as the slowest member Test Suite finished while the rest had finished beforehand.
-
-A warning: this examination may give you a wrong impression: *In the example, the Parallel mode took 107 seconds whereas the Sequential mode took 130 seconds. So the parallel mode is faster!*
-
-I would argue it is not quite right. The most important factor that determined the speed in this examination was the nature of each target URLs: how long each Test Case had to wait for the pages to load completely.
-
-## Conclusion
-
-I think it is pointless to discuss if we should challenge any parallel execution of test scripts, or not. Rather we should look into the nature of each indivisual target URLs and try to minimize the unnecessary wait in each test scripts. The speed of each test cases is the most important factor for total duration. You should make every efforts to tune each test cases run at the maximum speed. You shouldn't hope for the Parallel execution to do you a magic.
-
+I got the figure: 34 seconds.
 
 # Second report: How to change Smart Wait to expire faster in 5 seconds rather than 30 secs
 
