@@ -20,7 +20,7 @@ println "url: ${url}"
 
 Path logs = Paths.get("./logs")
 Files.createDirectories(logs)
-String timestamp = DateTimeFormatter.ofPattern("yyyyMMdd_hhmmss").format(LocalDateTime.now())
+String timestamp = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss").format(LocalDateTime.now())
 Path log = logs.resolve("${timestamp}.${tcindex}.log")
 System.setProperty("webdriver.chrome.logfile", log.toAbsolutePath().toString());
 System.setProperty("webdriver.chrome.verboseLogging", "true");

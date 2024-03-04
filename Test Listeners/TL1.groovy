@@ -19,7 +19,7 @@ class TL1 {
 	private boolean inSuite = false
 	private int numOfCells
 	private TilingCellLayoutMetrics layoutMetrics
-	private Pattern pattern = Pattern.compile("Test Cases/TC([0-9]+)")
+	private Pattern pattern = Pattern.compile("Test (Cases|Suites)/T[CS]([0-9]+)")
 	private LocalDateTime testSuiteStartedAt = null
 	private LocalDateTime testCaseStartedAt = null
 	
@@ -40,7 +40,7 @@ class TL1 {
 		//
 		Matcher m = pattern.matcher(testCaseContext.getTestCaseId())
 		if (m.matches()) {
-			GlobalVariable.TESTCASE_INDEX = Integer.parseInt(m.group(1))
+			GlobalVariable.TESTCASE_INDEX = Integer.parseInt(m.group(2))
 		} else {
 			GlobalVariable.TESTCASE_INDEX = 0
 		}
@@ -50,14 +50,18 @@ class TL1 {
 	@AfterTestCase
 	def afterTestCase(TestCaseContext testCaseContext) {
 		LocalDateTime testCaseFinishedAt = LocalDateTime.now()
-		showDurationSeconds(testCaseContext.getTestCaseId(), testCaseStartedAt, testCaseFinishedAt)
+		if (pattern.matcher(testCaseContext.getTestCaseId()).matches()) {
+			showDurationSeconds(testCaseContext.getTestCaseId(), testCaseStartedAt, testCaseFinishedAt)
+		}
 	}
 	
 	
 	@AfterTestSuite
 	def afterTestSuite(TestSuiteContext testSuiteContext) {
 		LocalDateTime testSuiteFinishedAt = LocalDateTime.now()
-		showDurationSeconds(testSuiteContext.getTestSuiteId(), testSuiteStartedAt, testSuiteFinishedAt)
+		if (pattern.matcher(testSuiteContext.getTestSuiteId())) {
+			showDurationSeconds(testSuiteContext.getTestSuiteId(), testSuiteStartedAt, testSuiteFinishedAt)
+		}
 	}
 	
 	private TilingCellLayoutMetrics createLayoutMetrics() {

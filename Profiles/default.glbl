@@ -24,4 +24,9 @@
       <initValue>false</initValue>
       <name>FAST_SMARTWAIT</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>null</initValue>
+      <name>TSC_STARTED_AT</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
