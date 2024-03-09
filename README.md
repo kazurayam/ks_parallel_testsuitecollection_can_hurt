@@ -34,11 +34,12 @@ I used Chrome browser to run the test cases with.
 
 How long each Test Cases takes to run?
 
-|Test Suite|seconds|Test Case|seconds| visits which URL?        |
-|----------|-------|---------|-------|--------------------------|
-|TS0       | 24    |TC0      | 23    |https://kyoto.travel/en/  |
-|TS1       | 16    |TC1      | 14    |https://www.esbnyc.com/   |
-|TS2       | 14    |TC2      | 13    |https://www.louvre.fr/en/ |
+|Test Suite|seconds|Test Case  |seconds| visits which URL?        |
+|----------|-------|-----------|-------|--------------------------|
+|TS0       | 24    |TC0        | 23    |https://kyoto.travel/en/  |
+|TS1       | 16    |TC1        | 14    |https://www.esbnyc.com/   |
+|TS2       | 14    |TC2        | 13    |https://www.louvre.fr/en/ |
+|TS_012    | 56    |TC0,TC1,TC2|       |                          |
 
 The sum of seconds of TS0 + TS1 + TS2 makes 54 seconds
 
@@ -58,4 +59,14 @@ How long the `Test Suites/TSC_parallel` took to finish executing the same set?
 I set the number of parallel execution to be 3.
 
 I got the figure: 50 seconds.
+
+## What I observed
+
+- A Test Suite Collection of Sequential mode is far slower than a Test Suite that combines the same set of Test Cases TC0+TC1+TC2.
+
+- A Test Suite Collection of Parellel mode took nearly equal ducration as the Test Suite that combines the same set of Test Cases TC0+TC1+TC2.
+
+## My Conclusion
+
+I am not very much convinced by the idea that Parallel mode execution of Test Suite Collection is effective to run my tests faster. So, what’s the benefit of the Parellel mode of TSC? — I don’t know yet.
 

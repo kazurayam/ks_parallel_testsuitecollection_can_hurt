@@ -40,6 +40,7 @@ BrowserWindowLayoutManager.layout(driver,
 if (GlobalVariable.FAST_SMARTWAIT == true) {
 	String waitJs = Utils.getWaitJs();
 	WebUI.executeJavaScript(waitJs, null)
+	WebUI.comment("wait_fast.js ran")
 }
 
 // navitate to the target URL

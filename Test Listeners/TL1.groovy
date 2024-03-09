@@ -19,7 +19,7 @@ class TL1 {
 	private boolean inSuite = false
 	private int numOfCells
 	private TilingCellLayoutMetrics layoutMetrics
-	private Pattern pattern = Pattern.compile("Test (Cases|Suites)/T[CS]([0-9]+)")
+	private Pattern pattern = Pattern.compile("Test (Cases|Suites)/T[CS]([0-9_]+)")
 	private LocalDateTime testSuiteStartedAt = null
 	private LocalDateTime testCaseStartedAt = null
 	

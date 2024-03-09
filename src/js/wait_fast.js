@@ -11,7 +11,7 @@ if (window === window.top && (typeof window.katalonWaiter == "undefined")) {
     var domTime = "";
     function katalon_smart_waiter_do_dom_wait() {
       setTimeout(() => {
-        if (domTime && (Date.now() - domTime > 5000)) {
+        if (domTime && (Date.now() - domTime > 8000)) {
           domTime = "";
           callback(true);
         } else if (
@@ -77,7 +77,7 @@ if (window === window.top && (typeof window.katalonWaiter == "undefined")) {
       }
 
       setTimeout(() => {
-        if (ajaxTime && (Date.now() - ajaxTime > 5000)) {
+        if (ajaxTime && (Date.now() - ajaxTime > 8000)) {
           ajaxCount = 0;
           ajaxTime = "";
           callback(true);
